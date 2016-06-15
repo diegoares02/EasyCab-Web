@@ -1,0 +1,75 @@
+﻿@model IEnumerable<TallerFinal.Models.Ubicacion>
+@if (Session["tipo"].ToString().Equals("Operador"))
+{
+    
+    {
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Operador.cshtml";
+}
+<h2>Index</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Persona.PersonaId)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Latitud)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Longitud)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Fecha)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Persona.PersonaId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Latitud)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Longitud)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Fecha)
+                        </td>
+                        <td>
+                            <link href="https://www.google.com.bo/maps/@item.Latitud,@item.Longitud,12z" rel="stylesheet" />
+                        </td>
+                    </tr>
+                }
+
+            </table>
+
+        </div>
+        <div class="col-md-6">
+            <div id="map" style="height:100% ; width:100%">
+            </div>            
+            <script>
+
+                var map;
+                function initMap() {
+                    map = new google.maps.Map(document.getElementById("map"), {
+                        center: { lat: -34.397, lng: 150.644 },
+                        zoom: 8
+                    });
+                }
+
+            </script>
+        </div>
+    </div>
+</div>
+
+
+}
+else{<h1>USUARIO NO VALIDO!!!!!!!!!</h1>
+}

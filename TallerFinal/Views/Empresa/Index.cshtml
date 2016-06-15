@@ -1,0 +1,50 @@
+﻿@model IEnumerable<TallerFinal.Models.Empresa>
+@if (Session["tipo"].ToString().Equals("Administrador"))
+{
+    {
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Administrador.cshtml";
+}
+
+<h2>Index</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Persona.PersonaId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NIT)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Persona.PersonaId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NIT)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.EmpresaId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.EmpresaId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.EmpresaId })
+        </td>
+    </tr>
+}
+
+</table>
+}
+else
+{ 
+        <h1>USUSARIO NO VALIDO!!!!!!!!!!!!</h1>
+}
+

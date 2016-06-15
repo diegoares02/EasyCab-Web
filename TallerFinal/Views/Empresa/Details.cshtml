@@ -1,0 +1,56 @@
+﻿@model TallerFinal.Models.Empresa
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Administrador.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Empresa</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NIT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NIT)
+        </dd>
+
+    </dl>
+</div>
+<div>
+    @if (Model.Sucursales.Count>0)
+    {
+        <h2>Sucursales</h2>
+        <div style="border:solid 1px #ff0000; margin:2px">
+            @foreach (var item in Model.Sucursales)
+            {
+                <div>ID: @item.SucursalId</div>
+                <div>Direccion: @item.Direccion</div>
+                <div>Telefono: @item.Telefono</div>
+            }            
+        </div>
+        <div>
+            @Html.ActionLink("Edit", "Edit", "Sucursal", new { id = Model.PersonaId })
+            @Html.ActionLink("Delete", "Delete", "Sucursal", new { id = Model.PersonaId })
+        </div>
+    }
+</div>
+    <div id="addSuc" style="display:inline">
+        @Html.ActionLink("Añadir Sucursal", "Create", "Sucursal", new { empresaid = Model.EmpresaId }, null)
+    </div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EmpresaId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

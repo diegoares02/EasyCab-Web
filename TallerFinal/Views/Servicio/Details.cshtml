@@ -1,0 +1,75 @@
+﻿@model TallerFinal.Models.Servicio
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Operador.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Servicio</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Cliente.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cliente.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Persona.Procedencia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Persona.Procedencia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vehiculo.Nro_Placa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vehiculo.Nro_Placa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tarifa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tarifa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DireccionOrigen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DireccionOrigen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DireccionDestino)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DireccionDestino)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ServicioId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

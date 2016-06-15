@@ -1,0 +1,77 @@
+﻿@model IEnumerable<TallerFinal.Models.Servicio>
+@if (Session["tipo"].ToString().Equals("Operador"))
+{
+
+    {
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Operador.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a href="@Url.Action("Create","Servicio")"><span class="glyphicon glyphicon-user"></span> Create</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Cliente.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Persona.Procedencia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Vehiculo.Nro_Placa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tarifa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DireccionOrigen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DireccionDestino)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cliente.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Persona.Procedencia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Vehiculo.Nro_Placa)
+        </td>
+        <td id="tarifa">
+            @Html.DisplayFor(modelItem => item.Tarifa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fecha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DireccionOrigen)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DireccionDestino)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ServicioId },new { @class="btn btn-warning"})|
+            @Html.ActionLink("Details", "Details", new { id = item.ServicioId }, new { @class = "btn btn-info" }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ServicioId }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>
+}
+else
+{
+    <h1>USUARIO NO VALIDO!!!!!!!!!</h1>
+}

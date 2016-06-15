@@ -1,0 +1,48 @@
+﻿@model IEnumerable<TallerFinal.Models.Cliente>
+@if (Session["tipo"].ToString().Equals("Operador"))
+{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Operador.cshtml";
+
+
+<h2>Index</h2>
+
+<p>
+    <a href="@Url.Action("Create","Cliente")"><span class="glyphicon glyphicon-user"></span> Create</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Paterno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telefono)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Paterno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Telefono)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.ClienteId }, new { @class = "btn btn-warning" }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ClienteId }, new { @class = "btn btn-info" }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ClienteId }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>
+}
+else { <h1>USUARIO NO VALIDO</h1>}

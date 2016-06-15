@@ -1,0 +1,51 @@
+﻿@model TallerFinal.Models.Vehiculo
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Propietario.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Vehiculo</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nro_Placa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nro_Placa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Marca)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Marca)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Modelo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Modelo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Dia_Restriccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dia_Restriccion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PersonaId }) |
+    @Html.ActionLink("Back to List", "Index","Conductor")
+</p>

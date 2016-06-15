@@ -1,0 +1,51 @@
+﻿@model TallerFinal.Models.Ubicacion
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Operador.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Ubicacion</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Persona.Procedencia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Persona.Procedencia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Latitud)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Latitud)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Longitud)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Longitud)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.UbicacionId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

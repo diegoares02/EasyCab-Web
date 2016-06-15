@@ -1,0 +1,128 @@
+﻿@model TallerFinal.Models.Persona
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Administrador.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Persona</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Procedencia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Procedencia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Paterno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Paterno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Materno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Materno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Direccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Direccion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Celular)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Celular)
+        </dd>
+    </dl>
+</div>
+<div class="row">
+    <div class ="col-sm-4">
+        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#usuario">Usuario</button>
+        <div>
+            @if (Model.Usuario != null)
+            {
+                <div id="usuario" class="collapse">
+                    <a>Username: @Model.Usuario.Username</a>
+                </div>
+                <div>
+                    @Html.ActionLink("Edit", "Edit", "Usuario", new { id = Model.PersonaId })
+                    @Html.ActionLink("Delete", "Delete", "Usuario", new { id = Model.PersonaId })
+                </div>
+            }
+        </div>
+        @if (Model.Usuario == null)
+        {
+            <div id="addUser" style="display:inline">
+                @Html.ActionLink("Añadir Usuario", "Create", "Usuario", new { personaid = Model.PersonaId }, null)
+            </div>
+        }
+    </div>
+    <div class="col-sm-4">
+        <div>
+            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#empresa">Empresa</button>
+            @if (Model.Empresas.Count > 0)
+            {
+                <div id="empresa" class="collapse">
+                    @foreach (var item in Model.Empresas)
+                    {
+                        <a>Empresa: @item.Nombre</a>
+                        <a>NIT: @item.NIT</a>
+                    }
+                </div>
+                <div>
+                    @Html.ActionLink("Edit", "Edit", "Empresa", new { id = Model.PersonaId })
+                    @Html.ActionLink("Delete", "Delete", "Empresa", new { id = Model.PersonaId })
+                </div>
+            }
+        </div>
+                <div id="addEmpresa" style="display:inline">
+                @Html.ActionLink("Añadir Empresa", "Create", "Empresa", new { personaid = Model.PersonaId }, null)
+                </div>
+    </div>
+</div>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PersonaId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,103 @@
+﻿@model TallerFinal.Models.Persona
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Administrador.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Persona</h4>
+	<hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Procedencia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Procedencia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Paterno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Paterno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Materno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Materno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Direccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Direccion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Celular)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Celular)
+        </dd>
+    </dl>
+</div>
+<div>
+    @if (Model.Usuario != null)
+    {
+        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#usuario">Usuario</button>
+
+        <div id="usuario" class="collapse">
+            <h1>Username: @Model.Usuario.Username</h1>
+        </div>
+        <div>
+            @Html.ActionLink("Edit", "Edit", "Usuario", new { id = Model.PersonaId }, new {@class="btn btn-warning" })
+            @Html.ActionLink("Delete", "Delete", "Usuario", new { id = Model.PersonaId }, new { @class="btn btn-danger"})
+        </div>
+    }
+</div>
+@if(Model.Usuario==null)
+{
+    <div id="addUser" style="display:inline">    
+        @Html.ActionLink("Añadir Usuario", "Create", "Usuario", new { personaid = Model.PersonaId }, new { @class="btn btn-success"})
+    </div>
+}
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PersonaId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,53 @@
+﻿@model IEnumerable<TallerFinal.Models.Licencia_Conducir>
+@if (Session["tipo"].ToString().Equals("Propietario"))
+{
+
+    {
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Propietario.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Persona.PersonaId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Categoria)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fecha_Expiracion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Persona.PersonaId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Categoria)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fecha_Expiracion)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PersonaId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PersonaId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PersonaId })
+        </td>
+    </tr>
+}
+
+</table>
+
+    
+}
+else
+{ <h1> USUARIO NO VALIDO !!!!!! </h1>}
